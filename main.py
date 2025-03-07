@@ -79,10 +79,12 @@ print(df)
 
 # Grouping data
 grouped_data = df.groupby('Employee City')
-
-# Aggregating grouped data
-print(grouped_data['Employee Salary'].mean())
-
+aggregated_data = grouped_data['Employee Salary'].agg(
+    mean='mean',
+    sum='sum',
+    median='median'
+)
+print('\n aggregated Data by Employee City(Mean, Sum, Median:\n', aggregated_data)
 # Resetting index
 df = df.reset_index()
 print(df)
